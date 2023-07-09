@@ -15,13 +15,13 @@ node{
   }
 
     stage('5.deploy to production'){
-     deploy adapters: [tomcat9(credentialsId: 'admin123', path: '', url: 'http://18.208.180.42:8080/')], contextPath: null, war: 'target/*.war'
+     deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://18.208.180.42:8080/')], contextPath: null, war: 'target/*.war'
   }
 
-  stage('6.Notification'){
+ /* stage('6.Notification'){
     emailext body: '''Hi Team,
 Build status
 Landmark Technologies''', recipientProviders: [developers(), contributor()], subject: 'build status', to: 'developers'
-  }
+  }*/
 
 }
